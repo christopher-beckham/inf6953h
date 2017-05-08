@@ -66,3 +66,15 @@ def load_mnist():
     # We just return all the arrays in order, as expected in main().
     # (It doesn't matter how we do this as long as we can read them again.)
     return X_train, y_train, X_val, y_val, X_test, y_test
+
+def iterator(X_full, y_full, bs, shuffle):
+    b = 0
+    if shuffle:
+        idxs = [x for x in range(X_full.shape[0])]
+        np.random.shuffle(idxs)
+        X_full, y_full = X_full[idxs], y_full[idxs]
+    while True:
+        if b*bs >= X_full.shape[0]:
+            break
+        yield X_full[b*bs:(b+1)*bs], y_full[b*bs:(b+1)*bs]
+        b += 1
