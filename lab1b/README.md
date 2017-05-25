@@ -1,3 +1,5 @@
+Both libraries we will be using are for Python. If you are using your own machine/laptop to do this work I strongly recommend you install the [Anaconda](https://www.continuum.io/downloads) distribution for Python, since this automatically includes a lot of libraries that we require, such as Numpy.
+
 Theano
 ----
 
